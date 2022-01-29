@@ -1,3 +1,4 @@
+'use strict';
 const express = require("express");
 const app = express();
 const path = require("path")
@@ -18,6 +19,7 @@ const dbo = require("./db/conn");
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+serverless(app)
 
 app.listen(port, () => {
   // perform a database connection when server starts
@@ -27,6 +29,3 @@ app.listen(port, () => {
   });
   console.log(`Server is running on port: ${port}`);
 });
-
-
-module.exports.handler = serverless(app)
