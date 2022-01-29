@@ -1,7 +1,6 @@
 
 
-exports.handler = (event, context) => {
-  console.log(`EVENT: ${JSON.stringify(event)}`);
+exports.handler = async event => {
   return {
     statusCode: 200,
     body: 'hello world'
