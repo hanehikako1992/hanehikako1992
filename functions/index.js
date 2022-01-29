@@ -1,4 +1,4 @@
-const app = require('./app');
+const app = require('./server');
 
 
 exports.handler = (event, context) => {
