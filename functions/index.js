@@ -1,4 +1,3 @@
-const app = require('./server');
 
 
 exports.handler = (event, context) => {
