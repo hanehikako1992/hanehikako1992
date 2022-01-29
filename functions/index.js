@@ -1,6 +1,6 @@
 'use strict';
 const app = require('./server')
-const dbo = require("./functions/db/conn");
+const dbo = require("./db/conn");
 
 app.listen(3000, () => {
   // perform a database connection when server starts
