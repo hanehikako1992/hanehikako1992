@@ -48,7 +48,7 @@
     "bootstrap": "npm install && cd metaboys && npm install",
     "start": "nodemon server-local.js",
     "server": "cd metaboys//server && npm start",
-    "build:express": "netlify-lambda build express",
+    "express": "netlify-lambda build express",
     "build": "webpack",
     "build:metaboys": "npm run bootstrap && npm run build && cd metaboys && npm run build",
     "test": "mocha --require ./babel-polyfill.js test/**/*.spec.js",
