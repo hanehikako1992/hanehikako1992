@@ -12,6 +12,15 @@ app.use(cors());
 app.use(express.json());
 router.use(require("./routes/user"));
 app.use('/.netlify/functions/server', router);  // path must route to lambda
+const dbo = require("./db/conn");
+
+app.listen(3000, () => {
+	 // perform a database connection when server starts
+	dbo.connectToServer(function (err) {
+		if (err) console.error(err);
+	});
+	console.log('Local app listening on port 3000!')
+});
 
 module.exports = app;
 module.exports.handler = serverless(app);
