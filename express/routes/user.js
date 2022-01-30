@@ -13,9 +13,46 @@ const mongodb = require("mongodb")
 
 // This help convert the id from string to ObjectId for the _id.
 
+const client = async () => {
+  let cli = await mongodb.connect(Db, { useUnifiedTopology: true })
+  return cli
+}
 // This section will help you create a new record.
 recordRoutes.route("/user/add").post(function (req, response) {
-  
+  const cli = client()
+  const db_connect = cli.db("meta3oys")
+
+  // let db_connect = dbo.getDb();
+  console.log(db_connect)
+  let myobj = {
+    email: req.body.email,
+    wallet: req.body.wallet,
+    balance: req.body.balance,
+    phone: req.body.phone,
+  };
+  console.log(myobj)
+  db_connect.collection("users").findOne({email: myobj["email"]}, (err, res) => {
+    if (err) throw err;
+    if (res !== null){
+      return response.status(400).send({message: 0})
+    }
+    db_connect.collection("users").findOne({wallet: myobj["wallet"]}, (err, res) => {
+      if (err) throw err;
+      if (res !== null){
+        return response.status(400).send({message: 1})
+      }
+      db_connect.collection("users").findOne({wallet: myobj["phone"]}, (err, res) => {
+        if (err) throw err;
+        if (res !== null){
+          return response.status(400).send({message: 2})
+        }
+        db_connect.collection("users").insertOne(myobj, function (err, res) {
+          if (err) throw err;
+          response.json(res);
+        });
+      }) 
+    }) 
+  })
 });
 
 module.exports = recordRoutes;
