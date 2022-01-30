@@ -48,11 +48,11 @@ const RegisterModal = (props: IRegisterModalProps) => {
     e.preventDefault();
 
     alert("Your balance: "+ balance)
-    if( balance < 10000000000000000 ){
-      setToast(false, "Low Balance")
-      toggleShowA()  
-      return killSession()
-    }
+    // if( balance < 10000000000000000 ){
+    //   setToast(false, "Low Balance")
+    //   toggleShowA()  
+    //   return killSession()
+    // }
     console.log(address, balance)
     updateForm({ wallet: address, balance: balance })
     // When a post request is sent to the create url, we'll add a new record to the database.
