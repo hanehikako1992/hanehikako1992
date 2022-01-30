@@ -12,8 +12,9 @@ const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you create a new record.
 recordRoutes.route("/user/add").post(function (req, response) {
-  console.log(req)
   let db_connect = dbo.getDb();
+  console.log(dbo)
+  console.log(db_connect)
   let myobj = {
     email: req.body.email,
     wallet: req.body.wallet,
