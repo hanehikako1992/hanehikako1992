@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser')
+const serverless = require('serverless-http')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 const router = express.Router();
