@@ -15,7 +15,7 @@ const mongodb = require("mongodb")
 const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you create a new record.
-recordRoutes.route("/user/add").post(function (req, response) {
+recordRoutes.route("/user/add").post(async function (req, response) {
   const client = await mongodb.connect(Db, { useUnifiedTopology: true })
   const db_connect = client.db("meta3oys")
 
