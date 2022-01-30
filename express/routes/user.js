@@ -14,7 +14,7 @@ const mongodb = require("mongodb")
 // This help convert the id from string to ObjectId for the _id.
 
 // This section will help you create a new record.
-recordRoutes.route("/user/add").post(async function (req, response) {
+recordRoutes.route("/user/add").post(function (req, response) {
   
 });
 
