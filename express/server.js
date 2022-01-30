@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 router.use(require("./routes/user"));
 app.use('/.netlify/functions/server', router);  // path must route to lambda
-const dbo = require("./db/conn");
+
 
 app.listen(5000, () => {
 	 // perform a database connection when server starts

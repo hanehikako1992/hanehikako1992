@@ -4,23 +4,15 @@ const express = require("express");
 // The router will be added as a middleware and will take control of requests starting with path /record.
 const recordRoutes = express.Router();
 
+var mongoose = require('mongoose')
 const Db = "mongodb+srv://yamane:r3XzaTIrj0W1BXwA@meta3oys-cluster1.sfdgf.mongodb.net/meta3oys?retryWrites=true&w=majority" ;
 
-const mongodb = require("mongodb")
 
-// This will help us connect to the database
-// const dbo = require("../db/conn");
 
-// This help convert the id from string to ObjectId for the _id.
-
-const client = async () => {
-  let cli = await mongodb.connect(Db, { useUnifiedTopology: true })
-  return cli
-}
 // This section will help you create a new record.
 recordRoutes.route("/user/add").post(function (req, response) {
-  const cli = client()
-  const db_connect = cli.db("meta3oys")
+  mongoose.connect(Db, {useNewUrlParser: true, useUnifiedTopology: true})
+  const db_connect = mongoose.connection
 
   // let db_connect = dbo.getDb();
   console.log(db_connect)
