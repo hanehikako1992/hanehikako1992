@@ -47,8 +47,6 @@
     "clean:all": "npm run clean && npm run clean:metaboys && npm run clean:node_modules",
     "bootstrap": "npm install && cd metaboys && npm install",
     "start": "nodemon server-local.js",
-    "server": "cd metaboys//server && npm start",
-    "express": "netlify-lambda build express",
     "build": "webpack",
     "build:metaboys": "npm run bootstrap && npm run build && cd metaboys && npm run build",
     "test": "mocha --require ./babel-polyfill.js test/**/*.spec.js",
@@ -95,14 +93,5 @@
     "react-dom": "^16.8.6",
     "styled-components": "^5.3.3",
     "tslib": "^1.10.0",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.6.6",
-    "mongoose": "^5.12.4",
-    "netlify-lambda": "^1.6.3",
-    "nodemon": "^1.19.2",
-    "serverless-http": "^2.3.0"
   }
 }
